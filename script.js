@@ -294,16 +294,21 @@ function showNotification(message, type = 'info') {
 
 // Resume Download
 function downloadResume() {
-    // Create a temporary download link
-    const link = document.createElement('a');
-    link.href = 'assets/OmkarResume.pdf';
-    link.download = 'OmkarResume.pdf';
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    showNotification('Resume download started!', 'success');
+    try {
+        // Create a temporary download link
+        const link = document.createElement('a');
+        link.href = './assets/OmkarResume.pdf';
+        link.download = 'Omkar_Bagwale_Resume.pdf';
+        link.setAttribute('type', 'application/pdf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        showNotification('Resume download started!', 'success');
+    } catch (error) {
+        console.error('Download error:', error);
+        showNotification('Failed to download resume. Please try again.', 'error');
+    }
 }
 
 // Utility Functions
