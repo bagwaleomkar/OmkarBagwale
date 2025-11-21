@@ -1,0 +1,13 @@
+{
+  "defaultOffset": {
+    "desktopTop": 80,
+    "mobileTop": 60
+  },
+  "sections": {
+    "home": { "desktopTop": 120, "mobileTop": 100 },
+    "about": { "desktopTop": 80, "mobileTop": 60 },
+    "skills": { "desktopTop": 80, "mobileTop": 60 },
+    "projects": { "desktopTop": 80, "mobileTop": 60 },
+    "contact": { "desktopTop": 80, "mobileTop": 60 }
+  }
+}

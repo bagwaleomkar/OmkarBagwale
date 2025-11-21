@@ -1,0 +1,429 @@
+/* Portfolio Design System - Custom Styles */
+
+/* Variables */
+:root {
+    --primary: hsl(217, 91%, 60%);
+    --primary-hover: hsl(217, 91%, 55%);
+    --secondary: hsl(224, 76%, 48%);
+    --accent: hsl(188, 94%, 43%);
+    --background: hsl(0, 0%, 100%);
+    --foreground: hsl(222.2, 84%, 4.9%);
+    --muted: hsl(220, 14%, 96%);
+    --muted-foreground: hsl(220, 9%, 46%);
+    --border: hsl(220, 13%, 91%);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--foreground);
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('../src/assets/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-20px); 
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+@keyframes progressFill {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--target-width);
+    }
+}
+
+/* Utility Classes */
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-content {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Section heading improvements */
+section h2 {
+    position: relative;
+    display: inline-block;
+}
+
+section h2 span {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(66, 153, 225, 0.3);
+}
+
+/* Improve gradient text rendering */
+.bg-gradient-to-r {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Realistic Snow Animation */
+.realistic-snow {
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    animation: realisticSnowfall linear infinite;
+    user-select: none;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+}
+
+/* Realistic snowfall animation with swaying */
+@keyframes realisticSnowfall {
+    0% {
+        transform: translateY(-10px) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 10px)) translateX(30px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Swaying motion for realism */
+@keyframes sway {
+    0%, 100% { transform: translateX(0px); }
+    25% { transform: translateX(-20px); }
+    75% { transform: translateX(20px); }
+}
+
+/* Individual snowflake properties */
+.s1 { left: 2%; animation-duration: 14s; animation-delay: 0s; font-size: 12px; }
+.s2 { left: 8%; animation-duration: 18s; animation-delay: 1s; font-size: 16px; animation-name: realisticSnowfall, sway; animation-duration: 18s, 4s; }
+.s3 { left: 15%; animation-duration: 12s; animation-delay: 2s; font-size: 10px; }
+.s4 { left: 22%; animation-duration: 20s; animation-delay: 0.5s; font-size: 18px; animation-name: realisticSnowfall, sway; animation-duration: 20s, 6s; }
+.s5 { left: 28%; animation-duration: 16s; animation-delay: 3s; font-size: 14px; }
+.s6 { left: 35%; animation-duration: 22s; animation-delay: 1.5s; font-size: 11px; animation-name: realisticSnowfall, sway; animation-duration: 22s, 5s; }
+.s7 { left: 42%; animation-duration: 15s; animation-delay: 4s; font-size: 13px; }
+.s8 { left: 48%; animation-duration: 19s; animation-delay: 2.5s; font-size: 17px; animation-name: realisticSnowfall, sway; animation-duration: 19s, 7s; }
+.s9 { left: 55%; animation-duration: 13s; animation-delay: 5s; font-size: 9px; }
+.s10 { left: 62%; animation-duration: 21s; animation-delay: 3.5s; font-size: 15px; animation-name: realisticSnowfall, sway; animation-duration: 21s, 4.5s; }
+.s11 { left: 68%; animation-duration: 17s; animation-delay: 6s; font-size: 12px; }
+.s12 { left: 75%; animation-duration: 14s; animation-delay: 4.5s; font-size: 19px; animation-name: realisticSnowfall, sway; animation-duration: 14s, 6.5s; }
+.s13 { left: 82%; animation-duration: 18s; animation-delay: 7s; font-size: 8px; }
+.s14 { left: 88%; animation-duration: 16s; animation-delay: 5.5s; font-size: 16px; animation-name: realisticSnowfall, sway; animation-duration: 16s, 5.5s; }
+.s15 { left: 95%; animation-duration: 20s; animation-delay: 8s; font-size: 11px; }
+.s16 { left: 5%; animation-duration: 15s; animation-delay: 6.5s; font-size: 14px; animation-name: realisticSnowfall, sway; animation-duration: 15s, 8s; }
+.s17 { left: 12%; animation-duration: 23s; animation-delay: 9s; font-size: 13px; }
+.s18 { left: 25%; animation-duration: 11s; animation-delay: 7.5s; font-size: 20px; animation-name: realisticSnowfall, sway; animation-duration: 11s, 3s; }
+.s19 { left: 38%; animation-duration: 19s; animation-delay: 10s; font-size: 10px; }
+.s20 { left: 72%; animation-duration: 17s; animation-delay: 8.5s; font-size: 15px; animation-name: realisticSnowfall, sway; animation-duration: 17s, 6s; }
+.s21 { left: 3%; animation-duration: 24s; animation-delay: 11s; font-size: 7px; }
+.s22 { left: 18%; animation-duration: 13s; animation-delay: 9.5s; font-size: 18px; animation-name: realisticSnowfall, sway; animation-duration: 13s, 4.8s; }
+.s23 { left: 33%; animation-duration: 21s; animation-delay: 12s; font-size: 12px; }
+.s24 { left: 58%; animation-duration: 16s; animation-delay: 10.5s; font-size: 16px; animation-name: realisticSnowfall, sway; animation-duration: 16s, 7.2s; }
+.s25 { left: 78%; animation-duration: 18s; animation-delay: 13s; font-size: 9px; }
+
+.card-hover {
+    transition: var(--transition-smooth);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+}
+
+.btn-primary {
+    transition: var(--transition-bounce);
+}
+
+.btn-outline {
+    transition: var(--transition-smooth);
+}
+
+/* Navigation Styles */
+#navbar {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+    border-radius: 1px;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 80%;
+}
+
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link:hover {
+    transform: translateY(-1px);
+}
+
+/* Enhanced button hover effects */
+.nav-link .absolute {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Mobile menu animations */
+#mobile-menu {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu:not(.hidden) {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-nav-link {
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    margin: 2px 0;
+}
+
+.mobile-nav-link:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateX(8px);
+    padding-left: 16px;
+}
+
+/* Skills Progress Bars */
+.skill-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.skill-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.progress-bar {
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    transition: width 1s ease-out;
+}
+
+/* Form Styles */
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary);
+    border-color: transparent;
+}
+
+/* Button Hover Effects */
+button:hover {
+    transform: scale(1.02);
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.bg-gradient-accent {
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .btn-primary,
+    .btn-outline {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Success States */
+.success {
+    background-color: #10b981;
+    border-color: #10b981;
+}
+
+/* Smooth Scrolling Enhancement */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Focus Styles for Accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .hero-section,
+    #navbar,
+    footer {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary: hsl(220, 100%, 40%);
+        --secondary: hsl(220, 100%, 30%);
+        --foreground: hsl(0, 0%, 0%);
+        --background: hsl(0, 0%, 100%);
+    }
+}
