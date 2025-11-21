@@ -296,17 +296,14 @@ function showNotification(message, type = 'info') {
 function downloadResume() {
     // Create a temporary download link
     const link = document.createElement('a');
-    
-    // In a real implementation, you would link to your actual resume file
-    // For now, we'll show a notification
-    showNotification('Resume download would start here. Please add your resume file to the project.', 'info');
-    
-    // Actual implementation would be:
-    link.href = '/assets/OmkarResume.pdf';
+    link.href = 'assets/OmkarResume.pdf';
     link.download = 'OmkarResume.pdf';
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    showNotification('Resume download started!', 'success');
 }
 
 // Utility Functions
